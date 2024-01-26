@@ -218,7 +218,7 @@ export const Counter = () => {
   const [carModels, setCarModels] = useState([]) 
   let carList = useAppSelector((state)=>state.carModel.carModels)
   const manufacturer = useAppSelector((state)=>state.manufacturer.manufacturer)
-  console.log(useAppSelector(state=>state))
+
   const handleName = (event: any)=>{
 
     setSellerName(event.target.value)
@@ -246,7 +246,6 @@ export const Counter = () => {
     
   }
   const handleCarModel = (event:any)=>{
-    console.log("MODELO", event.target.value)
     if(carManuf!==event.target.value || event.target.value!==''){
       setCarModel(event.target.value)
     }

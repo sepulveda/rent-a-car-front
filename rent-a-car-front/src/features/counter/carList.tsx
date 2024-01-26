@@ -82,7 +82,6 @@ export const Quotes = () => {
   const carCount = useAppSelector(selectCount)
 
   const handleDispatch = (id) =>{
-    console.log(id)
     dispatch(remove(id))
     alert("Registro eliminado.")
   }

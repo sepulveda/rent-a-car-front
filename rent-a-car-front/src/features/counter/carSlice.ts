@@ -31,7 +31,6 @@ export const carSlice = createAppSlice({
     }),
     remove: create.reducer((state, param)=>{
         const {payload} = param
-        console.log("en reducer", payload, state)
         let index = state.cars.findIndex((e)=>e.id===payload)
         let newCars = []
         for(var i=0; i<state.cars.length;i++){
