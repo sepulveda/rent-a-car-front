@@ -159,10 +159,7 @@ padding-top: 12px;
 margin-top: 24px;
 cursor: pointer;
 padding-bottom: 12px;
-&:disabled{
-  background-color: gray;
-  cursor: none;
-}
+
 
 
 @media (max-width: 768px){
@@ -252,15 +249,15 @@ export const Counter = () => {
     
   }
 
-  const handlePrice = (event: any)=>{
+  const handlePrice: boolean = (event: any)=>{
 
     setCarPrice(event.target.value)
   }
   const validate = () =>{
-    if(carPrice=='' && carModel==''&& carManuf=='' && carPlate && (sellerRut==='' || Fn.validaRut(sellerRut)==false) && sellerName==''){
-      return true
+    if(carPrice=='' && carModel==''&& carManuf=='' && carPlate=='' && (sellerRut==='' || Fn.validaRut(sellerRut)===false) && sellerName==''){
+      return false
     }
-    return false
+    return true
   }
   function submitForm(){
     let id = Date.now()
@@ -285,7 +282,6 @@ export const Counter = () => {
     setCarPrice('')
     setDisabledModel(true)
   }
-
 
   return (
     <Main>
@@ -361,7 +357,7 @@ export const Counter = () => {
         </Fieldset>
         </FormBlock>
         <hr/>
-        <Footer><Button onClick={()=>submitForm()}>Enviar</Button></Footer>
+        <Footer><Button disabled={!validate()} onClick={()=>submitForm()} >Enviar</Button></Footer>
       </Form>
       </Body>
     </Main>

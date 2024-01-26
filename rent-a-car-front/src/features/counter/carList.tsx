@@ -43,7 +43,9 @@ margin-bottom: 30px;
 
 
 `
-
+const Img= styled.img`
+    cursor: pointer;
+`
 const Subtitle=styled.text`
 
 font-size: 18px;
@@ -97,7 +99,7 @@ export const Quotes = () => {
     {carList.length>0?
         <>
         <Table>
-            
+                <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Rut vendedor</th>
@@ -107,7 +109,8 @@ export const Quotes = () => {
                     <th>Precio vehículo</th>
                     <th>Eliminar</th>
                 </tr>
-           
+                </thead>
+                <tbody>
                 {carList.map((car)=>{
                     return(
                         
@@ -118,16 +121,16 @@ export const Quotes = () => {
                             <td>{car.carManuf}</td>
                             <td>{car.carModel}</td>
                             <td>{car.carPrice}</td>
-                            <td><img src={DeleteIcon} onClick={()=>handleDispatch(car.id)}></img></td>
+                            <td><Img src={DeleteIcon} onClick={()=>handleDispatch(car.id)}></Img></td>
                         </tr>
                         
                     )
                     }
                 )
 
-                }</Table>
+                }</tbody></Table>
                 <BottomText>Mostrando registros del 1 al {carList.length} de un total de {carCount} registros.</BottomText></>:
-        <div>No hay autos</div>
+        <div><BottomText>No hay autos</BottomText></div>
             
     }
 
